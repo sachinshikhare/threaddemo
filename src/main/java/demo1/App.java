@@ -35,5 +35,18 @@ public class App {
         new Thread(new RunnerRunnableImplemented()).start();
         new RunnerThreadExtended().start();
         new Thread(new RunnerRunnableImplemented()).start();
+
+        new Thread(new Runnable() {
+            public void run() {
+                for (int cntr = 0; cntr < 10; cntr++) {
+                    System.out.println("Thread: " +  Thread.currentThread().getName() + ", Counter: " + cntr);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 }
